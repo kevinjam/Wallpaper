@@ -6,4 +6,5 @@
     <color name="colorTitle">#cecece</color>
     <color name="colorNavDefault">#8b8a8a</color>
     <color name="colorNavActive">#fafafa</color>
+    <color name="category">#8b8a8a</color>
 </resources>
