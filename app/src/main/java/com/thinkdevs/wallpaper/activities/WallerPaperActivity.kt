@@ -38,6 +38,7 @@ class WallerPaperActivity : AppCompatActivity() {
 		
 		dbWallerPaper = FirebaseDatabase.getInstance().getReference("images")
 				.child(category)
+		print("---dbWallerPaper $dbWallerPaper" )
 		
 		progressBar.visibility = View.VISIBLE
 		dbWallerPaper.addListenerForSingleValueEvent(object :ValueEventListener{
@@ -50,7 +51,7 @@ class WallerPaperActivity : AppCompatActivity() {
 				
 				if (p0!!.exists()){
 					for (ds in p0.children) {
-						val w = p0.getValue(WallPaper::class.java)
+						val w = ds.getValue(WallPaper::class.java)
 						wallpaperList.add(w!!)
 						println("000 " +w)
 						println("LIST $wallpaperList")
@@ -59,7 +60,9 @@ class WallerPaperActivity : AppCompatActivity() {
 					madater.notifyDataSetChanged()
 				
 				}else{
-					println("problem displaying " +p0.children)
+					println("problem displaying " +p0.children.toString())
+					println("problem displaying " +p0.value)
+					
 				}
 			}
 			
